@@ -28,4 +28,8 @@ target :app do
   check "apps/api/db/seeds.rb"
   check "apps/api/constants"
   check "apps/api/app.rb"
+  check "apps/mailer/app"
+  check "apps/mailer/db/seeds.rb"
+  check "apps/mailer/constants"
+  check "apps/mailer/app.rb"
 end

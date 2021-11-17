@@ -1,0 +1,30 @@
+module Mutations
+  module Base
+    module ArticleCategory
+      class UpdateArticleCategory < BaseMutation
+        String: String
+        Boolean: Boolean
+        Integer: Integer
+        def resolve:  ({
+                        id: String,
+                          name: String?,
+                          tags: [String]?,
+                          is_deleted: bool?,
+                          id: String?
+                      }) -> ({ :article_category_edge => { :node => String } } | ::GraphQL::ExecutionError )
+
+        def self.argument: (:name, String, required: false ) -> String
+                         | (:tags, [String], required: false ) -> String
+                         | (:is_deleted, Boolean, required: false ) -> bool
+                         | (:id, String, required: true ) -> String
+
+        def self.field: (*untyped) -> String
+        attr_accessor context: {user:{
+          id: Integer,
+          username: String,
+          email: String
+        }}
+      end
+    end
+  end
+end

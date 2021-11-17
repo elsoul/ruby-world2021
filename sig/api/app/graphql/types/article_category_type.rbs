@@ -1,0 +1,13 @@
+module Types
+  class ArticleCategoryType < BaseObject
+    def self.implements: (*untyped) -> untyped
+    def self.global_id_field: (:id) -> String
+    def self.field: (:name, String, null: true) -> String
+                  | (:tags, [String], null: true) -> String
+                  | (:is_deleted, Boolean, null: true) -> bool
+                  | (:created_at, String, null: true) -> String
+                  | (:updated_at, String, null: true) -> String
+  def self.edge_type: () -> untyped
+    def self.connection_type: () -> untyped
+  end
+end

@@ -1,0 +1,23 @@
+module Types
+  class ArticleType < BaseObject
+    def self.implements: (*untyped) -> untyped
+    def self.global_id_field: (:id) -> String
+    def self.field: (:user, untyped, null: false) -> untyped
+                  | (:comments, untyped, null: true) -> untyped
+                  | (:title, String, null: true) -> String
+                  | (:body, String, null: true) -> String
+                  | (:thumnail_url, String, null: true) -> String
+                  | (:public_date, String, null: true) -> String
+                  | (:article_category, untyped, null: false) -> untyped
+                  | (:is_public, Boolean, null: true) -> bool
+                  | (:just_created, Boolean, null: true) -> bool
+                  | (:slug, String, null: true) -> String
+                  | (:tags, [String], null: true) -> String
+                  | (:is_deleted, Boolean, null: true) -> bool
+                  | (:created_at, String, null: true) -> String
+                  | (:updated_at, String, null: true) -> String
+    def self.edge_type: () -> untyped
+    def self.connection_type: () -> untyped
+    def object: (*untyped) -> untyped
+  end
+end

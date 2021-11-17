@@ -5,5 +5,11 @@ Souls.configure do |config|
   config.endpoint = "/endpoint"
   config.strain = "mother"
   config.fixed_gems = ["spring"]
-  config.workers = []
+  config.workers = [
+    {
+      name: "souls-ruby-world2021-mailer",
+      endpoint: "",
+      port: 3000
+    }
+  ]
 end

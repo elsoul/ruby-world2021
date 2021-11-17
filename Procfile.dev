@@ -1,1 +1,2 @@
 api: foreman start -f ./apps/api/Procfile.dev
+mailer: foreman start -f ./apps/mailer/Procfile.dev

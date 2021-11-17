@@ -1,0 +1,5 @@
+module Types
+  class NewCommentMailerType < BaseObject
+    def self.field: (:response, String, null: true) -> untyped
+  end
+end
