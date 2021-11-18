@@ -18,10 +18,8 @@ module Mutations
 
       def resolve(args)
         _, data_id = SoulsApiSchema.from_global_id(args[:id])
-        user_id = context[:user][:id]
-        _, article_category_id = SoulsApiSchema.from_global_id(args[:article_category_id])
-        new_record = { **args, user_id: user_id, article_category_id: article_category_id }
         data = ::Article.find(data_id)
+        new_record = { **args, id: data_id, user_id: data.user_id, article_category_id: data.article_category_id }
         data.update(new_record)
         raise(StandardError, data.errors.full_messages) unless data.save
 

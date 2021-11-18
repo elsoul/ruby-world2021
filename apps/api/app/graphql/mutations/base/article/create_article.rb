@@ -16,9 +16,7 @@ module Mutations
       argument :title, String, required: false
 
       def resolve(args)
-        user_id = context[:user][:id]
-        _, article_category_id = SoulsApiSchema.from_global_id(args[:article_category_id])
-        new_record = { **args, user_id: user_id, article_category_id: article_category_id }
+        new_record = { **args, user_id: 1, article_category_id: 1 }
         data = ::Article.new(new_record)
         raise(StandardError, data.errors.full_messages) unless data.save
 
