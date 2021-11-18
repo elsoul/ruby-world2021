@@ -89,12 +89,12 @@ input ArticleFilter {
   isPublic: Boolean
   justCreated: Boolean
   publicDate: String
+  searchKeyword: String
   slug: String
   startDate: String
   tags: [String!]
   thumnailUrl: String
   title: String
-  titleContains: String
 }
 
 type Comment implements Node {

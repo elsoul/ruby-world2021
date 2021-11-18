@@ -19,7 +19,7 @@
   "articleTitle": "Title",
   "articleBody": "Body",
   "articleSlug": "Slug",
-  "searchByTitle": "Search by title",
+  "searchByKeyword": "Search by keyword",
   "searchExecute": "Search execute",
   "searchUpdate": "Update",
   "createConfirm": "Create an article",

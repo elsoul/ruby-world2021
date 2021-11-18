@@ -55,7 +55,7 @@ export default function SearchArticle() {
     currentRange,
   } = useRangeControl(50)
 
-  const [searchTitle, setSearchTitle] = useState<null | string>(null)
+  const [searchKeyword, setSearchKeyword] = useState<null | string>(null)
 
   const variables = useMemo(
     () => ({
@@ -63,10 +63,10 @@ export default function SearchArticle() {
       after,
       filter: {
         isDeleted: false,
-        titleContains: searchTitle,
+        searchKeyword,
       },
     }),
-    [first, after, searchTitle]
+    [first, after, searchKeyword]
   )
 
   const [queryReference, loadQuery] =
@@ -95,12 +95,12 @@ export default function SearchArticle() {
     (input: SearchArticleFormInput) => {
       goFirstRange()
       if (input.title === '') {
-        setSearchTitle(null)
+        setSearchKeyword(null)
       } else {
-        setSearchTitle(input.title)
+        setSearchKeyword(input.title)
       }
     },
-    [goFirstRange, setSearchTitle]
+    [goFirstRange, setSearchKeyword]
   )
 
   const titleErrorHelperText = useCallback(
@@ -179,7 +179,7 @@ export default function SearchArticle() {
                 render={({ field }) => (
                   <TextField
                     {...field}
-                    label={t('searchByTitle')}
+                    label={t('searchByKeyword')}
                     size="small"
                     error={!!errors.title}
                     helperText={titleErrorHelperText(errors.title)}

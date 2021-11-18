@@ -19,7 +19,7 @@
   "articleTitle": "記事タイトル",
   "articleBody": "記事本文",
   "articleSlug": "スラッグ",
-  "searchByTitle": "タイトルで検索",
+  "searchByKeyword": "キーワードで検索",
   "searchExecute": "検索実行",
   "searchUpdate": "更新",
   "createConfirm": "記事を作成する",

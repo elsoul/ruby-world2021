@@ -19,7 +19,7 @@ module Resolvers
       argument :tags, [String], required: false
       argument :thumnail_url, String, required: false
       argument :title, String, required: false
-      argument :title_contains, String, required: false
+      argument :search_keyword, String, required: false
     end
 
     option :filter, type: ArticleFilter, with: :apply_filter
@@ -34,6 +34,7 @@ module Resolvers
     def normalize_filters(value, branches = [])
       scope = ::Article.all
       scope = scope.where(title: value[:title]) if value[:title]
+      scope = scope.where("title LIKE ? OR body LIKE ?", "%#{value[:search_keyword]}%", "%#{value[:search_keyword]}%") if value[:search_keyword]
       scope = scope.where(body: value[:body]) if value[:body]
       scope = scope.where(thumnail_url: value[:thumnail_url]) if value[:thumnail_url]
       scope = scope.where(public_date: value[:public_date]) if value[:public_date]

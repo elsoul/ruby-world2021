@@ -13,12 +13,12 @@ export type ArticleFilter = {
     isPublic?: boolean | null | undefined;
     justCreated?: boolean | null | undefined;
     publicDate?: string | null | undefined;
+    searchKeyword?: string | null | undefined;
     slug?: string | null | undefined;
     startDate?: string | null | undefined;
     tags?: Array<string> | null | undefined;
     thumnailUrl?: string | null | undefined;
     title?: string | null | undefined;
-    titleContains?: string | null | undefined;
 };
 export type ArticleListQueryVariables = {
     first?: number | null | undefined;
