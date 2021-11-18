@@ -1,0 +1,5 @@
+schema: 'http://localhost:4000/endpoint'
+generates:
+  './src/schema.graphql':
+    plugins:
+      - 'schema-ast'

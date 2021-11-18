@@ -19,6 +19,7 @@ module Resolvers
       argument :tags, [String], required: false
       argument :thumnail_url, String, required: false
       argument :title, String, required: false
+      argument :title_contains, String, required: false
     end
 
     option :filter, type: ArticleFilter, with: :apply_filter
@@ -46,7 +47,7 @@ module Resolvers
       scope = scope.where(is_deleted: value[:is_deleted]) unless value[:is_deleted].nil?
       scope = scope.where("created_at >= ?", value[:start_date]) if value[:start_date]
       scope = scope.where("created_at <= ?", value[:end_date]) if value[:end_date]
-      branches << scope
+      branches << scope.order(created_at: :desc)
       value[:OR].inject(branches) { |acc, elem| normalize_filters(elem, acc) } if value[:OR].present?
       branches
     end

@@ -1,0 +1,9 @@
+/node_modules
+/dist
+/doc
+.DS_Store
+.firebase
+firebase-debug.log
+yarn-error.log
+.yarn/*
+!.yarn/releases
