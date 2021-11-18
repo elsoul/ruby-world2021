@@ -8,7 +8,7 @@ Souls.configure do |config|
   config.workers = [
     {
       name: "souls-ruby-world2021-mailer",
-      endpoint: "",
+      endpoint: "https://souls-ruby-world2021-mailer-dovgxkx57a-an.a.run.app/endpoint",
       port: 3000
     }
   ]
