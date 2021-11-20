@@ -15,13 +15,14 @@ module Mutations
         data = ::Comment.new(new_record)
         raise(StandardError, data.errors.full_messages) unless data.save
 
-        query_string = make_graphql_query(query: "NewCommentMailer")
+        query_string = make_graphql_query(query: "NewCommentMailer", args: { article_id: article_id.to_i })
         case ENV["RACK_ENV"]
         when "production"
           publish_pubsub_queue(topic_name: "souls_mailer_new_comment_mailer", message: query_string)
         when "development"
           puts(post_to_dev(worker_name: "mailer", query_string: query_string))
         end
+
         { comment_edge: { node: data } }
       end
     end

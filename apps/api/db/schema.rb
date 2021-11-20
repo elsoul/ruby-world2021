@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_225948) do
     t.string "title", null: false
     t.text "body", default: "", null: false
     t.string "thumnail_url", default: "", null: false
-    t.datetime "public_date", default: "2021-12-18 02:26:37", null: false
+    t.datetime "public_date", default: "2021-12-20 19:20:22", null: false
     t.bigint "article_category_id", null: false
     t.boolean "is_public", default: false, null: false
     t.boolean "just_created", default: true, null: false

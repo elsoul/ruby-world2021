@@ -95,7 +95,7 @@ class SoulsApi < Sinatra::Base
     result = SoulsApiSchema.execute(query.to_s)
     json(result)
   rescue StandardError => e
-    message = { error: e.backtrace }
+    message = { error: e }
     json(message)
   end
 end

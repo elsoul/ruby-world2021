@@ -3,7 +3,7 @@ module Types
     def self.implements: (*untyped) -> untyped
     def self.global_id_field: (:id) -> String
     def self.field: (:user, untyped, null: false) -> untyped
-                  | (:comments, untyped, null: true) -> untyped
+                  | (:comments, [untyped], null: true) -> untyped
                   | (:title, String, null: true) -> String
                   | (:body, String, null: true) -> String
                   | (:thumnail_url, String, null: true) -> String
